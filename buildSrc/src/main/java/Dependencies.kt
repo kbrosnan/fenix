@@ -25,7 +25,7 @@ private object Versions {
     const val mozilla_android_components = "0.49.0-SNAPSHOT"
 
     const val test_tools = "1.0.2"
-    const val espresso_core = "2.2.2"
+//    const val espresso_core = "2.2.2"
 
     const val autodispose = "1.1.0"
     const val adjust = "4.11.4"
@@ -37,6 +37,14 @@ private object Versions {
     const val glide = "4.9.0"
     const val flipper = "0.18.0"
     const val soLoader = "0.5.1"
+
+    const val espresso_core = "2.2.2"
+    const val espresso_version = "3.0.2"
+    const val mockwebserver = "3.10.0"
+    const val orchestrator = "1.1.1"
+    const val tools_test_rules = "1.1.1"
+    const val tools_test_runner = "1.1.1"
+    const val uiautomator = "2.1.3"
 }
 
 @Suppress("unused")
@@ -111,8 +119,8 @@ object Deps {
 
     const val leanplum = "com.leanplum:leanplum-core:${Versions.leanplum}"
 
-    const val tools_test_runner = "com.android.support.test:runner:${Versions.test_tools}"
-    const val tools_espresso_core = "com.android.support.test.espresso:espresso-core:${Versions.espresso_core}"
+//    const val tools_test_runner = "com.android.support.test:runner:${Versions.test_tools}"
+//    const val tools_espresso_core = "com.android.support.test.espresso:espresso-core:${Versions.espresso_core}"
 
     const val androidx_annotation = "androidx.annotation:annotation:${Versions.androidx_annotation}"
     const val androidx_fragment = "androidx.fragment:fragment:${Versions.androidx_fragment}"
@@ -146,4 +154,14 @@ object Deps {
 
     const val flipper = "com.facebook.flipper:flipper:${Versions.flipper}"
     const val soLoader = "com.facebook.soloader:soloader:${Versions.soLoader}"
+
+    const val espresso_contrib = "com.android.support.test.espresso:espresso-contrib:${Versions.espresso_version}"
+    const val espresso_core = "com.android.support.test.espresso:espresso-core:${Versions.espresso_core}"
+    const val espresso_idling_resources = "com.android.support.test.espresso:espresso-idling-resource:${Versions.espresso_version}"
+    const val espresso_web = "com.android.support.test.espresso:espresso-web:${Versions.espresso_version}"
+    const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockwebserver}"
+    const val orchestrator =  "androidx.test:orchestrator:${Versions.orchestrator}"
+    const val tools_test_rules = "com.android.support.test:rules:${Versions.tools_test_rules}"
+    const val tools_test_runner = "com.android.support.test:runner:${Versions.tools_test_runner}"
+    const val uiautomator = "com.android.support.test.uiautomator:uiautomator-v18:${Versions.uiautomator}"
 }

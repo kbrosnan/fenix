@@ -28,6 +28,7 @@ android {
         versionCode Config.versionCode
         versionName Config.versionName + Config.generateVersionSuffix()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
         manifestPlaceholders.isRaptorEnabled = "false"
     }
     buildTypes {
@@ -42,6 +43,10 @@ android {
             applicationIdSuffix ".debug"
             manifestPlaceholders.isRaptorEnabled = "true"
         }
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 
     flavorDimensions "abi", "channel"
@@ -303,8 +308,36 @@ dependencies {
     implementation Deps.adjust
     implementation Deps.installreferrer // Required by Adjust
 
+//    androidTestImplementation Deps.tools_test_runner
+//    androidTestImplementation Deps.tools_espresso_core
+
+    androidTestImplementation Deps.uiautomator
+
+    androidTestImplementation Deps.espresso_core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+    androidTestImplementation(Deps.espresso_contrib) {
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'design'
+        exclude module: 'espresso-core'
+    }
+
+    androidTestImplementation Deps.espresso_idling_resources
+    androidTestImplementation Deps.espresso_web, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+    androidTestImplementation Deps.mockwebserver
     androidTestImplementation Deps.tools_test_runner
-    androidTestImplementation Deps.tools_espresso_core
+    androidTestImplementation Deps.tools_test_rules
+    androidTestUtil Deps.orchestrator
+    androidTestImplementation Deps.espresso_core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 
     testImplementation Deps.junit_jupiter_api
     testImplementation Deps.junit_jupiter_params
